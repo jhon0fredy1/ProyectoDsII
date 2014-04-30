@@ -9,11 +9,10 @@ package taller_git;
  */
 public class Producto {
 
-    private String nombre, descripcion;
-     
+    private String nombre;
+    private String descripcion;
     public void setCosto(int costo) {
-       
-        this.costo = costo;
+               this.costo = costo;
     }
 
     public void setDescripcion(String descripcion) {
