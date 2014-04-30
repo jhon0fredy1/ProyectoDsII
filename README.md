@@ -6,3 +6,4 @@ Taller Gestión de Configuración
 
 JHON FREDY CABALLERO 1130028 jhon0fredy1
 DIANA CAROLINA GUZMAN 1226483 dianacgr
+MILTON LENIS RIVAS 1131602 miltonln04
