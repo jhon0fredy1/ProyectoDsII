@@ -174,7 +174,16 @@ public class VentanaDescuentos extends javax.swing.JFrame implements ActionListe
     public void actionPerformed(ActionEvent ae){     
             
         if(ae.getActionCommand().equals("Guardar")){
-            JOptionPane.showMessageDialog(null, "Implementame! D:");
+            try{
+                    int descuento = Integer.parseInt(textDescuento.getText());
+                    if(descuento>99 || descuento <1){
+                        JOptionPane.showMessageDialog(null, "el descuento debe ser un valor"
+                                + "numerico entre 1 y 99");
+                    }
+                    JOptionPane.showMessageDialog(null, "Implementame D: !");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "La cantidad de efectivo a pagar debe ser numerica");
+            }
         }
         
         if(ae.getActionCommand().equals("Cancelar")){

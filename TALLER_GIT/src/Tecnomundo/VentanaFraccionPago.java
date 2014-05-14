@@ -3,6 +3,7 @@ package Tecnomundo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -116,9 +117,17 @@ public class VentanaFraccionPago extends javax.swing.JFrame implements ActionLis
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("Comenzar a Pagar")){
-            VentanaPago ventanaPago =  new VentanaPago();
-            ventanaPago.setVisible(true);
-            ventanaPago.setLocationRelativeTo(this);
+            
+            try { 
+                Integer.parseInt(textFracciones.getText());
+                VentanaPago ventanaPago =  new VentanaPago();
+                ventanaPago.setVisible(true);
+                ventanaPago.setLocationRelativeTo(this);
+            }catch(Exception e){
+                textFracciones.setText(null);
+                JOptionPane.showMessageDialog(this, "El número de fracciones debe ser numerico");
+            }
+            
         }
         
         if(ae.getActionCommand().equals("Cancelar")){

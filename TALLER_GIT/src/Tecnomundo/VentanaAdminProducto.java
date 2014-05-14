@@ -171,7 +171,7 @@ public class VentanaAdminProducto extends javax.swing.JFrame implements ActionLi
 
         labelIVA.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         labelIVA.setForeground(new java.awt.Color(51, 102, 255));
-        labelIVA.setText("IVA:");
+        labelIVA.setText("% IVA:");
 
         textIVA.setFont(new java.awt.Font("Kalinga", 0, 12)); // NOI18N
 
@@ -445,7 +445,58 @@ public class VentanaAdminProducto extends javax.swing.JFrame implements ActionLi
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("Modificar")){
-            JOptionPane.showMessageDialog(null, "Implementame! D:");
+            try { 
+                Integer.parseInt(textPrecio.getText());
+                if(textNombre.getText().isEmpty() || textNombre.getText().length()<3){
+                    JOptionPane.showMessageDialog(this, "El nombre del producto debe "
+                            + "ser minimo de 3 caracteres");
+                }
+                if(textFabricante.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar el nombre del "
+                            + "fabricante");
+                }
+                if(textAreaDescripcion.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la descripción "
+                            + "del producto");
+                }
+                if(textDetalle1.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 1");
+                }
+                if(textDetalle2.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 2");
+                }
+                if(textDetalle3.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 3");
+                }
+                if(textDetalle4.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 4");
+                }
+                if(textDetalle5.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 5");
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this, "El precio de un producto debe ser númerico "
+                        + "y no debe tener puntos ni comas");
+            }
+            
+            try{
+                    int iva = Integer.parseInt(textIVA.getText());
+                    if(iva<0 || iva>100){
+                        JOptionPane.showMessageDialog(this, "El valor del iva no puede ser "
+                                + "menor que 0 ni mayor que 100");
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Implementame....");
+                    }
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, "El valor del IVA debe ser númerico");
+            }
+                
         }
         
         if(ae.getActionCommand().equals("Continuar")){
@@ -454,7 +505,58 @@ public class VentanaAdminProducto extends javax.swing.JFrame implements ActionLi
         }
         
         if(ae.getActionCommand().equals("Crear")){
-            JOptionPane.showMessageDialog(null, "Implementame! D:");
+            try { 
+                Integer.parseInt(textPrecio.getText());
+                if(textNombre.getText().isEmpty() || textNombre.getText().length()<3){
+                    JOptionPane.showMessageDialog(this, "El nombre del producto debe "
+                            + "ser minimo de 3 caracteres");
+                }
+                if(textFabricante.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar el nombre del "
+                            + "fabricante");
+                }
+                if(textAreaDescripcion.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la descripción "
+                            + "del producto");
+                }
+                if(textDetalle1.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 1");
+                }
+                if(textDetalle2.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 2");
+                }
+                if(textDetalle3.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 3");
+                }
+                if(textDetalle4.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 4");
+                }
+                if(textDetalle5.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la información "
+                            + "del detalle 5");
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this, "El precio de un producto debe ser númerico "
+                        + "y no debe tener puntos ni comas");
+            }
+            
+            try{
+                    int iva = Integer.parseInt(textIVA.getText());
+                    if(iva<0 || iva>100){
+                        JOptionPane.showMessageDialog(this, "El valor del iva no puede ser "
+                                + "menor que 0 ni mayor que 100");
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Implementame....");
+                    }
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, "El valor del IVA debe ser númerico");
+            }
+                
         }
         
         if(ae.getActionCommand().equals("...")){

@@ -587,19 +587,45 @@ public class VentanaPago extends javax.swing.JFrame implements ActionListener{
         }
         
         if(ae.getActionCommand().equals("Calcular Devolución")){
-           JOptionPane.showMessageDialog(null, "Implementame D: !");
+            try{
+                    Integer.parseInt(textCantidadEfectivo.getText());
+                    JOptionPane.showMessageDialog(null, "Implementame D: !");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "La cantidad de efectivo debe ser numerica");
+            }
+           
         }
         
         if(ae.getActionCommand().equals("Pagar Efectivo")){
-            JOptionPane.showMessageDialog(null, "Implementame D: !");
+            try{
+                    Integer.parseInt(textValorPagarEfectivo.getText());
+                    JOptionPane.showMessageDialog(null, "Implementame D: !");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "La cantidad de efectivo a pagar debe ser numerica");
+            }
         }
         
         if(ae.getActionCommand().equals("Pagar Debito")){
-            JOptionPane.showMessageDialog(null, "Implementame D: !");
+            try{
+                    Integer.parseInt(textValorPagarDebito.getText());
+                    Integer.parseInt(textNroTarjeta.getText());
+                    JOptionPane.showMessageDialog(null, "Implementame D: !");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "La cantidad a pagar y el numero "
+                        + "de la tarjeta deben ser valores numericos");
+            }
         }
         
         if(ae.getActionCommand().equals("Pagar Credito")){
-           JOptionPane.showMessageDialog(null, "Implementame D: !");
+            try{
+                    Integer.parseInt(textValorPagarCredito.getText());
+                    Integer.parseInt(textNroTarjetaCredito.getText());
+                    Integer.parseInt(textNroCuotas.getText());
+                    JOptionPane.showMessageDialog(null, "Implementame D: !");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "La cantidad a pagar, el numero "
+                        + "de la tarjeta y el numero de cuotas deben ser valores numericos");
+            }
         }
         
     }

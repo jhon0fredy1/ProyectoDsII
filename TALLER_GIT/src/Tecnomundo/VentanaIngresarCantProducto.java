@@ -170,7 +170,17 @@ public class VentanaIngresarCantProducto extends javax.swing.JFrame implements A
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("Ingresar")){
-            JOptionPane.showMessageDialog(null, "Implementame! D:");
+            try{
+                    int cantidad = Integer.parseInt(textCantidad.getText());
+                    if(cantidad<=0){
+                        JOptionPane.showMessageDialog(null, "la cantidad de productos "
+                                + "debe ser un valor superior a 0");
+                    }
+                    JOptionPane.showMessageDialog(null, "Implementame D: !");
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "La cantidad de productos a "
+                        + "ingresar debe ser un valor numerico");
+            }
         }
         
         if(ae.getActionCommand().equals("Cancelar")){
