@@ -28,6 +28,7 @@ public class Cliente {
         return documento;
     }
 
+    //HOLA
     public void setDocumento(String documento) {
         this.documento = documento;
     }
