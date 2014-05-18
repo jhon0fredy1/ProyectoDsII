@@ -1,6 +1,5 @@
 package Tecnomundo;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -12,12 +11,11 @@ import javax.swing.UIManager;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Milton
  */
-public class VentanaAdminCliente extends javax.swing.JFrame implements ActionListener{
+public class VentanaAdminCliente extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form VentanaAdminCliente
@@ -25,7 +23,7 @@ public class VentanaAdminCliente extends javax.swing.JFrame implements ActionLis
     public VentanaAdminCliente(String tipo) {
         initComponents();
         
-        switch(tipo){
+        switch (tipo) {
             case "Modificar":
                 configVentanaModificar();
                 break;
@@ -34,39 +32,38 @@ public class VentanaAdminCliente extends javax.swing.JFrame implements ActionLis
                 break;
             case "Consultar":
                 configVentanaConsulta();
-                break;               
+                break;            
         }
         
         setControlador();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     
-    public void setControlador(){
+    public void setControlador() {
         botonAdmin.addActionListener(this);
         botonCancelar.addActionListener(this);
     }
     
-     public void configVentanaModificar(){
+    public void configVentanaModificar() {
         labelTitulo.setText("MODIFICAR CLIENTE");
         botonAdmin.setText("Modificar");
         textNroDoc.setEditable(false);
     }
     
-    public void configVentanaCrear(){
+    public void configVentanaCrear() {
         labelTitulo.setText("CREAR CLIENTE");
         botonAdmin.setText("Crear");
     }
     
-    public void configVentanaConsulta(){
+    public void configVentanaConsulta() {
         labelTitulo.setText("CONSULTAR CLIENTE");
         botonAdmin.setText("Continuar");
         comboTdoc.setEditable(false);
         textNroDoc.setEditable(false);
-        textDireccion.setEditable(false);       
+        textDireccion.setEditable(false);        
         textNombre.setEditable(false);
         textEmail.setEditable(false);
         textTelefono.setEditable(false);
-        
         
     }
 
@@ -272,29 +269,55 @@ public class VentanaAdminCliente extends javax.swing.JFrame implements ActionLis
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getActionCommand().equals("Modificar")){
-            if(textDireccion.getText().equals("")||textNombre.getText().equals("")
-                    ||textNroDoc.getText().equals("")||textTelefono.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "No puede haber ningún campo vacío "
-                        + "\n a excepción del e-mail o la fecha de nacimiento");
-            }else JOptionPane.showMessageDialog(this, "Implementame");
+        
+        try{
+        
+            Integer.parseInt(textTelefono.getText());
+        
+        }catch(NumberFormatException a){
+        
+            JOptionPane.showMessageDialog(null, "EL numero telefonico no es valido");
+        }
+        try {
+            
+                
+            Integer.parseInt(textNroDoc.getText());
+            
+            if (ae.getActionCommand().equals("Modificar")) {
+                if (textDireccion.getText().equals("") || textNombre.getText().equals("")
+                        || textNroDoc.getText().equals("") || textTelefono.getText().equals("")) {
+                    JOptionPane.showMessageDialog(this, "No puede haber ningún campo vacío "
+                            + "\n a excepción del e-mail o la fecha de nacimiento");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Implementame");
+                }
+            }
+            
+            if (ae.getActionCommand().equals("Continuar")) {
+                JOptionPane.showMessageDialog(null, "Implementame! D:");
+                this.dispose();
+            }
+            
+            if (ae.getActionCommand().equals("Crear")) {
+                if (textDireccion.getText().equals("") || textNombre.getText().equals("")
+                        || textNroDoc.getText().equals("") || textTelefono.getText().equals("")) {
+                    JOptionPane.showMessageDialog(this, "No puede haber ningún campo vacío "
+                            + "\n a excepción del e-mail o la fecha de nacimiento");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Implementame");
+                }
+            }
+            
+            if (ae.getActionCommand().equals("Cancelar")) {
+                this.dispose();
+            }
+        } catch (NumberFormatException e) {
+            
+            JOptionPane.showMessageDialog(null,"El Documento de indentidad solo"+
+                    "debe contener numeros"
+                    );
+            
         }
         
-        if(ae.getActionCommand().equals("Continuar")){
-            JOptionPane.showMessageDialog(null, "Implementame! D:");
-            this.dispose();
-        }
-        
-        if(ae.getActionCommand().equals("Crear")){
-            if(textDireccion.getText().equals("")||textNombre.getText().equals("")
-                    ||textNroDoc.getText().equals("")||textTelefono.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "No puede haber ningún campo vacío "
-                        + "\n a excepción del e-mail o la fecha de nacimiento");
-            }else JOptionPane.showMessageDialog(this, "Implementame");
-        }
-        
-        if(ae.getActionCommand().equals("Cancelar")){
-            this.dispose();
-        }
     }
 }

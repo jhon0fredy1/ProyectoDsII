@@ -23,7 +23,7 @@ public class Principal {
         catch(Exception exception){
             System.out.println("NO SE PUEDE CAMBIAR EL ASPECTO");
         }
-        
+     
         VentanaIngresarSistema ejecucion = new VentanaIngresarSistema();
         ejecucion.setLocationRelativeTo(null);
         ejecucion.setVisible(true);

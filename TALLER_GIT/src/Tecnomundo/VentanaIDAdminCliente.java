@@ -1,6 +1,5 @@
 package Tecnomundo;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -12,20 +11,19 @@ import javax.swing.UIManager;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Milton
  */
-public class VentanaIDAdminCliente extends javax.swing.JFrame implements ActionListener{
+public class VentanaIDAdminCliente extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form VentanaIDAdminCliente
      */
     public VentanaIDAdminCliente(String tipo) {
         initComponents();
-        
-        switch(tipo){
+
+        switch (tipo) {
             case "Modificar":
                 configVentanaModificar();
                 break;
@@ -34,29 +32,29 @@ public class VentanaIDAdminCliente extends javax.swing.JFrame implements ActionL
                 break;
             case "Consultar":
                 configVentanaConsulta();
-                break;               
+                break;
         }
-        
+
         setControlador();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
-    
-    public void setControlador(){
+
+    public void setControlador() {
         botonAdmin.addActionListener(this);
         botonCancelar.addActionListener(this);
     }
-    
-    public void configVentanaModificar(){
+
+    public void configVentanaModificar() {
         labelTitulo.setText("MODIFICAR CLIENTE");
         botonAdmin.setText("Modificar");
     }
-    
-    public void configVentanaEliminar(){
+
+    public void configVentanaEliminar() {
         labelTitulo.setText("ELIMINAR CLIENTE");
         botonAdmin.setText("Eliminar");
     }
-    
-    public void configVentanaConsulta(){
+
+    public void configVentanaConsulta() {
         labelTitulo.setText("CONSULTAR CLIENTE");
         botonAdmin.setText("Consultar");
     }
@@ -135,7 +133,6 @@ public class VentanaIDAdminCliente extends javax.swing.JFrame implements ActionL
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAdmin;
@@ -147,22 +144,30 @@ public class VentanaIDAdminCliente extends javax.swing.JFrame implements ActionL
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-         if(ae.getActionCommand().equals("Modificar")){
-            VentanaAdminCliente ventanaModificarCliente = new VentanaAdminCliente("Modificar");
-            ventanaModificarCliente.setLocationRelativeTo(this);
-            ventanaModificarCliente.setVisible(true);
-            this.dispose();
+        try {
+            Integer.parseInt(textID.getText());
+            if (ae.getActionCommand().equals("Modificar")) {
+                VentanaAdminCliente ventanaModificarCliente = new VentanaAdminCliente("Modificar");
+                ventanaModificarCliente.setLocationRelativeTo(this);
+                ventanaModificarCliente.setVisible(true);
+                this.dispose();
+            }
+
+            if (ae.getActionCommand().equals("Consultar")) {
+                VentanaAdminCliente ventanaConsultarClientes = new VentanaAdminCliente("Consultar");
+                ventanaConsultarClientes.setLocationRelativeTo(this);
+                ventanaConsultarClientes.setVisible(true);
+                this.dispose();
+            }
+
+            if (ae.getActionCommand().equals("Cancelar")) {
+                this.dispose();
+            }
+        } catch (NumberFormatException e) {
+            
+            JOptionPane.showMessageDialog(null, "EL codigo no es valido");
+            
         }
-        
-        if(ae.getActionCommand().equals("Consultar")){
-            VentanaAdminCliente ventanaConsultarClientes = new VentanaAdminCliente("Consultar");
-            ventanaConsultarClientes.setLocationRelativeTo(this);
-            ventanaConsultarClientes.setVisible(true);
-            this.dispose();
-        }                
-        
-        if(ae.getActionCommand().equals("Cancelar")){
-            this.dispose();
-        }
+
     }
 }
