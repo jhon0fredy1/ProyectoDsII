@@ -31,6 +31,7 @@ public class Producto {
         return descripcion;
     }
 
+    //HOLA OTRA VEZ
     public String getNombre() {
         return nombre;
     }
